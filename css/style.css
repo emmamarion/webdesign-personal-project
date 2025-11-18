@@ -1,12 +1,27 @@
 /* Card Styling */
 .arc-grid {
     display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-items: center;
+    align-items: start;
 }
 
+.arc-grid img {
+    width: 150px;
+    margin: auto;
+    border-radius: 10%;
+}
+
+.arc-grid div {
+    border: solid black 2px;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+}
 
 /* Mobile View */
-.arc-grid {
-    grid-template-columns: auto;
-}
+
 /* Tablet View */
+
 /* Desktop View */
