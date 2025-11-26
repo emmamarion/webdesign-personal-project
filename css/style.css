@@ -1,27 +1,22 @@
-/* Card Styling */
-.arc-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
-    justify-items: center;
-    align-items: start;
+.typewriter {
+    border-right: 2px solid black; /* the cursor */
+    white-space: pre;
+    font-family: monospace;
+    animation: blink 0.75s step-end infinite;
 }
 
-.arc-grid img {
-    width: 150px;
-    margin: auto;
-    border-radius: 10%;
+@keyframes blink {
+    0%, 100% {border-color: transparent;}
+    50% {border-color: black;}
 }
 
-.arc-grid div {
-    border: solid black 2px;
-    display: block;
-    padding: 10px;
-    border-radius: 10px;
+/* ACCESSIBILITY: Disable effect if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .typewriter {
+    animation: none; /* No blinking cursor */
+    border-right: none; /* Hide cursor */
+  }
+
+  /* Text filling is done in JS, 
+  but this ensures no CSS motion triggers. */
 }
-
-/* Mobile View */
-
-/* Tablet View */
-
-/* Desktop View */
