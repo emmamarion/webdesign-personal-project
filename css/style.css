@@ -5,6 +5,11 @@
     animation: blink 0.75s step-end infinite;
 }
 
+/* #typewriter-container:focus {
+    outline: 3px solid blue;
+    outline-offset: 4px;
+} */
+
 @keyframes blink {
     0%, 100% {border-color: transparent;}
     50% {border-color: black;}
