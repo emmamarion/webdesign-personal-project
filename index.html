@@ -10,11 +10,14 @@
 <body>
     <nav>
         <button onclick="startTyping('home')">Home</button>
+        <button onclick="startTyping('about')">About</button>
+        <button>Writing</button>
+        <button>Photography</button>
     </nav>
 
-   <p aria-label="Welcome to my website! This is a project for my college webdesign class.">
+   <p id="typewriter-container" tabindex="-1" aria-label="">
         <span aria-hidden="true" class="typewriter"></span>
    </p>
 </body>
 <script src="js/typewriter.js"></script>
-</html>
+</html> 
