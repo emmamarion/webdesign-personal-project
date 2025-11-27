@@ -7,20 +7,25 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Emma's Paw Nebula</title>
 </head>
-<body>
-    <nav>
-        <button onclick="startTyping('home')">Home</button>
-        <button onclick="startTyping()">Writing</button>
-        <button onclick="startTyping()">Photography</button>
-        <button onclick="startTyping('about')">About</button>
-        <button id="muteBtn" onclick="toggleMute()" aria-pressed="false">Mute sound</button>
-    </nav>
-    <div class="speech-bubble">
-        <p id="typewriter-container" tabindex="-1" aria-label="" role="region">
-            <span aria-hidden="true" class="typewriter"></span>
-        </p>
-    </div>
 
+<body>
+    <header>
+        <a href="#main" class="skip">Skip to Main Content</a>
+        <nav>
+            <button onclick="startTyping('home')">Home</button>
+            <button onclick="startTyping()">Writing</button>
+            <button onclick="startTyping()">Photography</button>
+            <button onclick="startTyping('about')">About</button>
+            <button id="muteBtn" onclick="toggleMute()" aria-pressed="false">Mute sound</button>
+        </nav>
+    </header>
+    <main>
+        <div class="speech-bubble">
+            <p id="typewriter-container" tabindex="-1" aria-label="" role="region">
+                <span aria-hidden="true" class="typewriter"></span>
+            </p>
+        </div>
+    </main>
+    <script src="js/typewriter.js"></script>
 </body>
-<script src="js/typewriter.js"></script>
 </html> 
