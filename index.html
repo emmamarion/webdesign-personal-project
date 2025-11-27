@@ -26,10 +26,13 @@
     </header>
 
     <main>
-        <div class="speech-bubble" onclick="skipDialogue()">
-            <p id="typewriter-container" tabindex="-1" aria-label="" role="region">
-                <span aria-hidden="true" class="typewriter"></span>
-            </p>
+        <!-- wrapper reserves space so section content doesn't move while typing effect is happening -->
+        <div class="bubble-wrapper"> 
+            <div class="speech-bubble" onclick="skipDialogue()">
+                <p id="typewriter-container" tabindex="-1" aria-label="" role="region">
+                    <span aria-hidden="true" class="typewriter"></span>
+                </p>
+            </div>
         </div>
     <div>
 
@@ -45,7 +48,9 @@
 
         <section id="photography-content" class="content-section hidden">
             <h2>Photography Gallery</h2>
-            <p>Here are some photos...</p>
+            <div id="photo-gallery">
+
+            </div>
         </section>
 
         <section id="about-content" class="content-section hidden">
