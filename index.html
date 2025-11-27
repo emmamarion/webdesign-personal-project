@@ -24,12 +24,36 @@
             <button id="muteBtn" aria-pressed="false">Mute sound</button>
         </nav>
     </header>
+
     <main>
         <div class="speech-bubble" onclick="skipDialogue()">
             <p id="typewriter-container" tabindex="-1" aria-label="" role="region">
                 <span aria-hidden="true" class="typewriter"></span>
             </p>
         </div>
+    <div>
+
+        <section id="home-content" class="content-section">
+            <h2>Welcome Home</h2>
+            <p>This is the content that appears when you click the Home button.</p>
+        </section>
+
+        <section id="writing-content" class="content-section hidden">
+            <h2>My Writing</h2>
+            <p>Here are some of my writing pieces...</p>
+        </section>
+
+        <section id="photography-content" class="content-section hidden">
+            <h2>Photography Gallery</h2>
+            <p>Here are some photos...</p>
+        </section>
+
+        <section id="about-content" class="content-section hidden">
+            <h2>About Emma</h2>
+            <p>More details about the author...</p>
+        </section>
+
+    </div>
     </main>
     <script src="js/typewriter.js"></script>
 </body>
