@@ -13,6 +13,7 @@ let typingTimeout;
 
 // --- AUDIO POOLING SETUP ---
 const audioPool = [];
+let lastSoundTime = 0; // Tracks when the last sound was played
 const poolSize = 6; // Create 6 copies to reuse. Enough to allow overlap.
 const talkSoundSrc = "audio/talkingSound.wav";
 
@@ -20,6 +21,9 @@ const talkSoundSrc = "audio/talkingSound.wav";
 for (let i = 0; i < poolSize; i++) {
     const audio = new Audio(talkSoundSrc);
     audio.volume = 0.5;
+    
+    // PRE-CALCULATE: Assign a permanent random speed to this specific audio copy
+    audio.playbackRate = 0.8 + Math.random() * 0.4; 
     audioPool.push(audio);
 }
 
@@ -74,7 +78,13 @@ function playBlip() {
     if (isMuted) return;
 
     const audio = audioPool[poolIndex];
-    audio.playbackRate = 0.8 + Math.random() * 0.4;
+    
+    const now = Date.now();
+    // Only play if 100ms have passed since the last beep
+    if (now - lastSoundTime < 100) {
+        return; 
+    }
+
     audio.currentTime = 0;
     audio.play();
     poolIndex = (poolIndex + 1) % poolSize;
