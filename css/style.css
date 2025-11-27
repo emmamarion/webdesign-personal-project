@@ -53,11 +53,7 @@
 @media (min-width: 768px){
     .speech-bubble {
         max-width: 700px;
-    }
-    #muteBtn {
-        display: initial;
-    }
-    
+    }  
 }
 
 @media (min-width: 992px) {
