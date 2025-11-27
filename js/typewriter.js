@@ -5,20 +5,25 @@ const dialogueContent = {
 
 const element = document.querySelector(".typewriter");
 const container = document.querySelector("#typewriter-container");
+const speechBubble = document.querySelector(".speech-bubble")
+let currentFullText = "";
+
 const typeSpeed = 50; // miliseconds per character
 let typingTimeout;
 
 const talkSound = new Audio("audio/talkingSound.wav");
 
 function startTyping(sectionKey) {
-    // Pick text from array
-    const textToType = dialogueContent[sectionKey];
+    if (!dialogueContent[sectionKey]) return;
+
+    // Pick text from array and store globaly for skip function
+    currentFullText = dialogueContent[sectionKey];
 
     // Stop current typing
     clearTimeout(typingTimeout)
 
     // Accessability: update aria label immediately for screen readers
-    container.setAttribute("aria-label", textToType);
+    container.setAttribute("aria-label", currentFullText);
 
     // Accessability: Move the screen reader to read the new label
     container.focus();
@@ -31,14 +36,14 @@ function startTyping(sectionKey) {
 
     if (prefersReducedMotion) {
     // If user prefers reduced motion, show full text immediately
-    element.textContent = textToType;
+    element.textContent = currentFullText;
     element.style.borderRight = 'none'; // Remove cursor
     } else {
         element.style.borderRight = '2px solid black'; // Restore cursor in case preferences change
         let i = 0
         function typeWriter() {
-            if (i < textToType.length){
-                let char = textToType.charAt(i);
+            if (i < currentFullText.length){
+                let char = currentFullText.charAt(i);
                 element.textContent += char
                 i++;
 
@@ -74,3 +79,8 @@ function toggleMute() {
     }
 }
 
+function skipDialogue() {
+    clearTimeout(typingTimeout);
+    element.textContent = currentFullText;
+    element.style.borderRight = 'none';
+}
