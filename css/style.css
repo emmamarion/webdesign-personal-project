@@ -8,6 +8,10 @@ body {
     font-family: 'Nunito';
 }
 
+.hidden {
+    display: none;
+}
+
 .speech-bubble {
     width: fit-content;
     min-height: 24px;
