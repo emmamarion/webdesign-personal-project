@@ -5,6 +5,12 @@
 }
 
 .bubble-wrapper{
+    position: sticky;
+    top: 30px;
+    transition: min-height 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+
     min-height: 200px;
     display: flex;
     flex-direction: column;
@@ -55,10 +61,20 @@ body {
     display: none;
 }
 
-/* #typewriter-container:focus {
-    outline: 3px solid blue;
-    outline-offset: 4px;
-} */
+header {
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.bubble-wrapper.collapsed {
+    min-height: auto;
+}
+
+.bubble-wrapper.collapsed .speech-bubble {
+    display: none;
+}
 
 @keyframes blink {
     0%, 100% {border-color: transparent;}
