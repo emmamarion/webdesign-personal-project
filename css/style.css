@@ -1,39 +1,22 @@
+body {
+    font-family: 'Nunito';
+}
+
+header {
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
 .typewriter {
     border-right: 2px solid black; /* the cursor */
     white-space: pre-wrap;
     animation: blink 0.75s step-end infinite;
 }
 
-.bubble-wrapper{
-    position: sticky;
-    top: 30px;
-    transition: min-height 0.3s ease;
-    padding: 10px;
-    border-radius: 10px;
-
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: flex-start;
-    margin: 20px;
-}
-
-body {
-    font-family: 'Nunito';
-}
-
-.photogallery {
-    display: grid;
-}
-
-.hidden {
-    display: none;
-}
-
 .speech-bubble {
     width: fit-content;
-    min-height: 24px;
     min-width: 20px;
     position: relative;
     background-color: #f0f0f0;
@@ -42,6 +25,16 @@ body {
     max-width: 500px; /* Limit the width */
     margin: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    /* Animation Setup */
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+
+    /* Open state */
+    max-height: 800px;
+    opacity: 1;
+    margin: 0px;
+    min-height: 24px;
 }
 
 .speech-bubble::after {
@@ -57,24 +50,58 @@ body {
     left: 20px; /* horizontal position of the arrow */
 }
 
+.bubble-wrapper{
+    position: sticky;
+    top: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    
+    /* Flexbox setup */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start;
+    margin: 20px;
+
+    /* ANIMATION SETUP */
+    transition: min-height 0.5s ease;
+    
+    /* Open State: Keeps the area large enough */
+    min-height: 200px;
+}
+
+.bubble-wrapper.collapsed {
+    min-height: 0;
+}
+
+.bubble-wrapper.collapsed .speech-bubble {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+
+.bubble-wrapper.collapsed .speech-bubble::after {
+    opacity: 0;
+    transition: opacity 0.2s ease; /* Fade it out slightly faster */
+}
+
+.photogallery {
+    display: grid;
+}
+
+.hidden {
+    display: none;
+}
+
 #muteBtn {
     display: none;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    border-bottom: 2px solid black;
-    padding-bottom: 10px;
-}
 
-.bubble-wrapper.collapsed {
-    min-height: auto;
-}
-
-.bubble-wrapper.collapsed .speech-bubble {
-    display: none;
-}
 
 @keyframes blink {
     0%, 100% {border-color: transparent;}
