@@ -59,14 +59,18 @@ header {
     left: 20px; /* horizontal position of the arrow */
 }
 
-
-
-
 #photo-gallery {
     display: grid;
     grid-template-columns: auto;
     place-items: center;
     gap: 10px;
+}
+
+#photo-gallery button {
+    background: none;
+    border: none;
+    padding: none;
+    cursor: pointer;
 }
 
 #photo-gallery img {
