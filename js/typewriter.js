@@ -16,12 +16,15 @@ const photoDialogue = {
 }
 
 // GLOBAL VARIABLES
+const mouthSpeed = 150;
 const element = document.querySelector(".typewriter"); // span element
 const container = document.querySelector("#typewriter-container"); // p element
 const speechBubble = document.querySelector(".speech-bubble"); // div element
 const contentSections = document.querySelectorAll(".content-section") // all content sections
 const bubbleWrapper = document.querySelector(".bubble-wrapper");
 const galleryImgBtns = document.querySelectorAll("#photo-gallery button");
+const catBody = document.querySelector(".cat-body")
+let mouthInterval;
 
 // BUTTONS
 const homeBtn = document.querySelector('#homeBtn') // home button
@@ -80,7 +83,7 @@ function startTyping(sectionKey) {
     container.setAttribute("aria-label", currentFullText);
     // Move the screen reader to read the new label
     container.focus();
-    
+
     resetTypingAnimation();
 
     // Check every time dialogue starts in case user preferences change
@@ -109,6 +112,24 @@ function updateSectionVisibility(sectionKey) {
     }
 }
 
+function startMouthAnimation() {
+    clearInterval(mouthInterval);
+    mouthInterval = setInterval(() => {
+        const currentSrc = catBody.getAttribute('src')
+
+        if (currentSrc.includes("Closed")) { 
+            catBody.setAttribute('src', '../images/toffee_assets/toffeeMouthOpen.png')
+        } else {
+            catBody.setAttribute('src', '../images/toffee_assets/toffeeMouthClosed.png')
+        }
+    }, mouthSpeed); // speed of mouth movement
+}
+
+function stopMouthAnimation() {
+    clearInterval(mouthInterval);
+    catBody.setAttribute('src', '../images/toffee_assets/toffeeMouthClosed.png')
+}
+
 function resetTypingAnimation() {
     clearTimeout(typingTimeout);
     element.textContent = "";
@@ -117,6 +138,7 @@ function resetTypingAnimation() {
 
 function runTypewriterEffect() {
     let i = 0;
+    startMouthAnimation();
     function loop() {
         if (i < currentFullText.length){
             let char = currentFullText.charAt(i);
@@ -125,6 +147,8 @@ function runTypewriterEffect() {
 
             if (char != " " && i % 2 == 0) playBlip();
             typingTimeout = setTimeout(loop, typeSpeed);
+        } else {
+            stopMouthAnimation();
         }
     }
     loop();
@@ -162,6 +186,7 @@ function skipAndCollapseDialogue() {
 
 function skipDialogue() {
     clearTimeout(typingTimeout);
+    stopMouthAnimation();
     element.textContent = currentFullText;
     element.style.borderRight = 'none';
 }
