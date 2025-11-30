@@ -9,25 +9,35 @@ header {
     top: 0;
     border-bottom: 2px solid black;
     padding-bottom: 10px;
+    background-color: white;
 }
 
 .cat-body {
-    width: 400px;
-    height: auto;
+    height: 160px;
     z-index: 10;
     position: sticky;
     top: 0;
     left: 0;
 }
 
+#homeBtn {
+    background: none;
+    border: none;
+    padding: none;
+    cursor: pointer;
+}
+
 nav {
     background-image: url("../images/toffee_assets/toffeeTail.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 75% auto;
+    background-position: right;
+    min-height: 50px;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     justify-content: space-between;
     align-items: center;
+    padding-right: 0px
 }
 
 .typewriter {
@@ -50,7 +60,7 @@ nav {
 
 .bubble-wrapper{
     position: sticky;
-    top: 50px;
+    top: 200px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
