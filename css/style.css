@@ -13,7 +13,7 @@ button {
 
 header {
     position: sticky;
-    top: 5px;
+    top: 10px;
     border-bottom: 4px solid black;
     padding-bottom: 10px;
     background-color: white;
@@ -99,9 +99,9 @@ button.shown {
 
 #photo-gallery {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr; 
     place-items: center;
-    gap: 0px;
+    gap: 10px;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -111,11 +111,15 @@ button.shown {
     border: none;
     padding: none;
     cursor: pointer;
+    width: 100%;
 }
 
 #photo-gallery img {
-    width: 300px;
+    width: 100%; 
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes tiny gap under images */
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .hidden {
@@ -147,9 +151,11 @@ button.shown {
     .speech-bubble {
         max-width: 700px;
     }  
+
     #photo-gallery {
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr 1fr;
     }
+
 }
 
 /* LAPTOP */
@@ -165,13 +171,10 @@ button.shown {
     #muteBtn {
         display: initial;
     }
-    #photo-gallery {
-        grid-template-columns: auto auto auto;
-        gap: 20px;
-    }
 
-    #photo-gallery img {
-        width: 400px
+    #photo-gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
     }
 }
 
