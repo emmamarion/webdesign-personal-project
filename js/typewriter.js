@@ -8,7 +8,7 @@ const sectionDialogue = {
 const photoDialogue = {
     tinyhouse: "Emma isn't really sure what this is, but she thinks it's funny that it looks like a tiny house. Me? I'm already in talks to take out a loan!",
     twochairs: "Ahhh, ruby ellen farm. One of Emma's favorite spots to go for walks in Traverse City. I wonder if anyone ever sits in those chairs...",
-    westbay: "This one was taken on Traverse City's west bay. Back when the photo was taken, there was a lot of construction happening over there. Emma tells me it was to build a roundabout, and it's finished now! Maybe she'll show me a picture some day...",
+    westbay: "Rosie took this one on Traverse City's west bay. Back when the photo was taken, there was a lot of construction happening over there. Emma tells me it was to build a roundabout, and it's finished now! Maybe she'll show me a picture some day...",
     rainbow: "Fun fact about this one: Emma used the upper right corner of this picture as the album cover art for her first hit lofi single. She brags that it made 4 cents, which sounds like a lot.",
     rosielore: "This is Emma's girlfriend Rosie! they were going to do this whole 'us lore' project together, but it never panned out. This is one of the concept art pieces Emma made for it!",
     snowlore: "Sometimes, when driving around up north you'll find secret beaches tucked away off the highway. Emma likes going to them in the winter and taking photos, brrrr.. ",
@@ -16,27 +16,30 @@ const photoDialogue = {
 }
 
 // GLOBAL VARIABLES
-const mouthSpeed = 150;
+const mouthSpeed = 100;
 const element = document.querySelector(".typewriter"); // span element
 const container = document.querySelector("#typewriter-container"); // p element
 const speechBubble = document.querySelector(".speech-bubble"); // div element
 const contentSections = document.querySelectorAll(".content-section") // all content sections
 const bubbleWrapper = document.querySelector(".bubble-wrapper");
 const galleryImgBtns = document.querySelectorAll("#photo-gallery button");
-const catBody = document.querySelector(".cat-body")
+const catBody = document.querySelector(".cat-body");
+const volumeIcon = document.querySelector("#volume-icon");
+
 let mouthInterval;
 
 // BUTTONS
 const homeBtn = document.querySelector('#homeBtn') // home button
 const writingBtn = document.querySelector('#writingBtn') // writing button
-const photoBtn = document.querySelector('#photoBtn') // photo button
+const photographyBtn = document.querySelector('#photographyBtn') // photo button
 const aboutBtn = document.querySelector('#aboutBtn') // about button
 const muteBtn = document.querySelector('#muteBtn') // mute button
+let previousSection = homeBtn;
 
 // EVENT LISTENERS
 homeBtn.addEventListener('click', () => startTyping('home'));
 writingBtn.addEventListener('click', () => startTyping('writing'))
-photoBtn.addEventListener('click', () => startTyping('photography'));
+photographyBtn.addEventListener('click', () => startTyping('photography'));
 aboutBtn.addEventListener('click', () => startTyping('about'));
 speechBubble.addEventListener('click', () => skipAndCollapseDialogue());
 muteBtn.addEventListener('click', () => toggleMute());
@@ -105,10 +108,19 @@ function updateSectionVisibility(sectionKey) {
         section.classList.add('hidden');
     });
 
+
+    
+
     // Show target section
     const targetSelection = document.querySelector(targetId);
     if (targetSelection) {
-        targetSelection.classList.remove('hidden')
+        targetSelection.classList.remove('hidden');
+        const targetBtnID = "#" + sectionKey + "Btn";
+        targetBtn = document.querySelector(targetBtnID);
+        targetBtn.classList.add('shown');
+        previousSection.classList.remove('shown');
+        previousSection = targetBtn;
+
     }
 }
 
@@ -118,16 +130,16 @@ function startMouthAnimation() {
         const currentSrc = catBody.getAttribute('src')
 
         if (currentSrc.includes("Closed")) { 
-            catBody.setAttribute('src', '../images/toffee_assets/toffeeMouthOpen.png')
+            catBody.setAttribute('src', 'images/toffee_assets/toffeeMouthOpen.png')
         } else {
-            catBody.setAttribute('src', '../images/toffee_assets/toffeeMouthClosed.png')
+            catBody.setAttribute('src', 'images/toffee_assets/toffeeMouthClosed.png')
         }
     }, mouthSpeed); // speed of mouth movement
 }
 
 function stopMouthAnimation() {
     clearInterval(mouthInterval);
-    catBody.setAttribute('src', '../images/toffee_assets/toffeeMouthClosed.png')
+    catBody.setAttribute('src', 'images/toffee_assets/toffeeMouthClosed.png')
 }
 
 function resetTypingAnimation() {
@@ -174,8 +186,10 @@ function toggleMute() {
 
     if (isMuted) {
         btn.setAttribute("aria-pressed", "true");
+        volumeIcon.setAttribute("src", "images/volumeMuted.png");
     } else {
         btn.setAttribute("aria-pressed", "false")
+        volumeIcon.setAttribute("src", "images/volume.png");
     }
 }
 
