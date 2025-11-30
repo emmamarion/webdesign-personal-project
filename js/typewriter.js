@@ -1,5 +1,5 @@
 const sectionDialogue = {
-    home: "Welcome to my website! My name is Swirly Wirly Toffee, but you can just call me Toffee. Click on any of the buttons on my tail to explore the website! If I'm taking too long to talk, try clicking on the speech bubble.",
+    home: "Welcome to my website! My name is Swirly Wirly Toffee, but you can just call me Toffee. Click on the buttons to the right of me to explore the website! You can also poke my words to make them smaller, or so I've been told.",
     writing: "WRITING",
     photography: "Emma likes to leave her photos here for me to look at. Poke on any of them and I can tell you more about them!",
     about: "The owner of this website is Emma Marion. She's a Junior at the University of Michigan School of Information (UMSI) studying user experience (UX) design. She actually built this website for her final project in her web design class! How cool is that?"
@@ -8,7 +8,7 @@ const sectionDialogue = {
 const photoDialogue = {
     tinyhouse: "Emma isn't really sure what this is, but she thinks it's funny that it looks like a tiny house. Me? I'm already in talks to take out a loan!",
     twochairs: "Ahhh, ruby ellen farm. One of Emma's favorite spots to go for walks in Traverse City. I wonder if anyone ever sits in those chairs...",
-    westbay: "Rosie took this one on Traverse City's west bay. Back when the photo was taken, there was a lot of construction happening over there. Emma tells me it was to build a roundabout, and it's finished now! Maybe she'll show me a picture some day...",
+    westbay: "Rosie took this one on Traverse City's west bay, and then Emma took it into photoshop for color grading and cropping. She was going for a kinda wes anderson sorta thing? Back when the photo was taken, there was a lot of construction happening over there. Emma tells me it was to build a roundabout, and it's finished now! Maybe she'll show me a picture some day...",
     rainbow: "Fun fact about this one: Emma used the upper right corner of this picture as the album cover art for her first hit lofi single. She brags that it made 4 cents, which sounds like a lot.",
     rosielore: "This is Emma's girlfriend Rosie! they were going to do this whole 'us lore' project together, but it never panned out. This is one of the concept art pieces Emma made for it!",
     snowlore: "Sometimes, when driving around up north you'll find secret beaches tucked away off the highway. Emma likes going to them in the winter and taking photos, brrrr.. ",
