@@ -107,9 +107,6 @@ function updateSectionVisibility(sectionKey) {
         section.classList.add('hidden');
     });
 
-
-    
-
     // Show target section
     const targetSelection = document.querySelector(targetId);
     if (targetSelection) {
@@ -117,9 +114,14 @@ function updateSectionVisibility(sectionKey) {
         const targetBtnID = "#" + sectionKey + "Btn";
         const targetBtn = document.querySelector(targetBtnID);
         targetBtn.classList.add('shown');
-        previousSection.classList.remove('shown');
-        previousSection = targetBtn;
 
+        if (previousSection) { 
+            previousSection.classList.remove('shown');
+            previousSection.removeAttribute("aria-current")
+        }
+        targetBtn.setAttribute("aria-current", "page")
+
+        previousSection = targetBtn;
     }
 }
 
