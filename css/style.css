@@ -24,7 +24,7 @@ header {
 
 nav {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, auto);
     justify-content: left;
     align-items: center;
     gap: 20px;
