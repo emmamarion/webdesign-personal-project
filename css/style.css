@@ -27,9 +27,13 @@ nav {
     grid-template-columns: repeat(5, auto);
     justify-content: left;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
 }
 
+nav button {
+    color: black;
+    font-size: 0.8rem;
+}
 
 nav button:hover {
     border-bottom: 3px solid black;
@@ -44,7 +48,7 @@ button.shown {
 }
 
 .cat-body {
-    height: 100px;
+    height: 60px;
     z-index: 10;
     top: 0;
     left: 0;
@@ -70,8 +74,7 @@ button.shown {
 
 .bubble-wrapper{
     position: sticky;
-    top: 150px;
-    min-height: 200px;
+    min-height: 150px;
     margin: 20px;
 }
 
@@ -109,7 +112,7 @@ button.shown {
 #photo-gallery button {
     background: none;
     border: none;
-    padding: none;
+    padding: 0;
     cursor: pointer;
     width: 100%;
 }
@@ -144,16 +147,36 @@ button.shown {
     .speech-bubble {
         max-width: 400px;
     }
+
+    .bubble-wrapper {
+        top: 10px;
+    }
 }
 
 /* TABLET */
 @media (min-width: 768px){
+    .bubble-wrapper {
+        top: 150px;
+    }
+
     .speech-bubble {
         max-width: 700px;
     }  
 
     #photo-gallery {
         grid-template-columns: 1fr 1fr;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    nav button {
+        font-size: 1rem;
+    }
+
+    .cat-body {
+        height: 100px;
     }
 
 }
